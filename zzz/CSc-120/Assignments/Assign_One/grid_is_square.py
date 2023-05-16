@@ -1,0 +1,1 @@
+# Grid is square
