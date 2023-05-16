@@ -2,11 +2,12 @@
 #   a. prints the numbers from 100 to 0 in descending order by 2
 #   b. prints every other element of nums , which is a list of integers
 
-# a.
+# # Solution a.
 # for i in range(100, -1, -2):
+# for i in range(100, -2, -2):
 #     print(i)
 
-# b.
+# # Solution b.
 # nums = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 # for i in range(0,len(nums),2):
 # for i in nums[::2]:
@@ -23,8 +24,9 @@
 #       ['CS', '120', 'Summer', 2018', 'U', 'of', 'A']
 
 
-def get_words(s):
-    return s.split("-")
+# Solution
+# def get_words(s):
+#     return s.split("-")
 
 
 # print(
@@ -42,22 +44,25 @@ def get_words(s):
 #   You can assume that the argument grid is in fact a grid (i.e., a list of
 #   equal-length lists of numbers)
 
-myGrid = [
-    [11, 22, 33, 44, 55],
-    [66, 77, 88, 99, 11],
-    [22, 33, 44, 55, 66],
-    [77, 88, 99, 11, 22],
-    [33, 44, 55, 66, 77],
-]
+# myGrid = [
+#     [11, 22, 33, 44, 55],
+#     [66, 77, 88, 99, 11],
+#     [22, 33, 44, 55, 66],
+#     [77, 88, 99, 11, 22],
+#     [33, 44, 55, 66, 77],
+# ]
 
 
-def sum_column(grid, offset):
-    sum = 0
-    for i in range(len(grid)):
-        sum += grid[i][offset]
-    return sum
+# Solution
+# def sum_column(grid, offset):
+#     sum = 0
+#     for i in range(len(grid)):
+#         sum += grid[i][offset]
+#     return sum
 
-    # return sum([row[offset] for row in grid])
+# Alternate Solution
+# def sum_column(grid, offset):
+# return sum([row[offset] for row in grid])
 
 
 # print(sum_column(myGrid, 0))  # ➞ 209
@@ -88,25 +93,46 @@ def sum_column(grid, offset):
 #           undergrowth
 
 
-def print_some_words(filename, n):
-    textfile = open(filename)
-    for line in textfile:
-        line = line.split()
-        for word in line:
-            clean_word = word.strip(".,?;")
-            if len(clean_word) >= n:
-                print(clean_word)
-    # with open(filename, "r") as f:
-    #     for line in f:
-    #         for word in line.split():
-    #             if len(word) >= n:
-    #                 print(word)
+# Solution
+# def print_some_words(filename, n):
+#     textfile = open(filename)
+#     for line in textfile:
+#         line = line.split()
+#         for word in line:
+#             clean_word = word.strip(".,?;")
+#             if len(clean_word) >= n:
+#                 print(clean_word)
 
 
-print_some_words("sample.txt", 6)
+# Alternate Solution
+# def print_some_words(filename, n):
+#     with open(filename, "r") as f:
+#         for line in f:
+#             for word in line.split():
+#                 if len(word) >= n:
+#                     print(word)
+
+
+# print_some_words("sample.txt", 6)
 
 
 # ---------------------------------------------------------------
+# 5. Challenge. Write a function sum_diag_UL_LR(grid, offset) that takes as
+#   arguments a grid of numbers and an offset and returns the result of summing the numbers on a specified
+#   diagonal of grid. This function considers diagonals running from the upper-left of the grid to the lowerright
+#   (hence the ‘UL_LR’ in the function name). The offset is used to select which diagonal to sum, as shown on
+#   the right; the grid shown in this figure is represented in the program as a list of lists:
+#           [ [11, 22, 33, 44, 55],
+#             [66, 77, 88, 99, 11],
+#             [22, 33, 44, 55, 66],
+#             [77, 88, 99, 11, 22],
+#             [33, 44, 55, 66, 77] ]
+#
+# Your program can assume that the argument grid is in fact a grid (i.e., a list of
+#   equal-length lists of numbers) but should be able to handle grids of any size.
+#
+# Hint: Start by writing out the indices of the diagonals for each offset. First do the
+#   positive offsets and write the code for the positive offsets.
 
 
 myGrid = [
@@ -117,6 +143,15 @@ myGrid = [
     [33, 44, 55, 66, 77],
 ]
 
+
+# Solution
+def sum_diag_UL_LR(grid, offset):
+    sum = 0
+    for i in range(len(grid)):
+        print(grid[i][i])
+
+
+# Notes
 """
 offset = 0
 grid[0][0]
@@ -140,22 +175,40 @@ grid[2][4]
 for i in range(len(grid)):
     print(grid[i][i])
 
+from coursework------------------------------------------------
+ sum = 0
+ if offset > 0:
+ # write the code for the positive case
+ else:
+ # write the code for the negative case
 
-notes**
+ def sum_diag_UL_LR(grid, offset):
+ sum = 0
+ if offset > 0:
+ i,j = 0,offset
+ else:
+ i,j = -offset,0
+ while i < len(grid) and j < len(grid): # both indexes within
+bounds
+ sum += grid[i][j]
+ i, j = i+1, j+1
+ return sum
+--------------------------------------------------------------
+
+notes**5/15
 while loop
 i & j
 positive offsets
 negative offsets
 and combine
-
-
 """
 
+# Alternate Solution
+# def sum_diag_UL_LR(grid, offset):
+#     sum = 0
+#     for i in range(len(grid)):
+#         sum += grid[i][i + offset]
+#     return sum
 
-def sum_diag_UL_LR(grid, offset):
-    sum = 0
-    for i in range(len(grid)):
-        print(grid[i][i])
 
-
-# sum_diag_UL_LR(myGrid, 2)
+sum_diag_UL_LR(myGrid, 2)
