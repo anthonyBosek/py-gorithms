@@ -147,9 +147,31 @@ myGrid = [
 # Solution
 def sum_diag_UL_LR(grid, offset):
     sum = 0
-    for i in range(len(grid)):
-        print(grid[i][i])
+    if offset > 0:
+        i = 0
+        x = offset
+        while i < len(grid) and x < len(grid[i]):
+            sum += grid[i][x]
+            i += 1
+            x += 1
+    else:
+        i = -offset
+        x = 0
+        while i < len(grid) and x < len(grid[i]):
+            sum += grid[i][x]
+            i += 1
+            x += 1
+    return sum
 
+
+print(sum_diag_UL_LR(myGrid, 2))  # ➞ 198
+print(sum_diag_UL_LR(myGrid, -2))  # ➞ 165
+print(sum_diag_UL_LR(myGrid, 0))  # ➞ 220
+print(sum_diag_UL_LR(myGrid, -3))  # ➞ 121
+
+
+#
+# ---------------------------------------------------------------
 
 # Notes
 """
@@ -209,6 +231,3 @@ and combine
 #     for i in range(len(grid)):
 #         sum += grid[i][i + offset]
 #     return sum
-
-
-sum_diag_UL_LR(myGrid, 2)
