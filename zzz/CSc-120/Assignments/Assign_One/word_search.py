@@ -18,5 +18,24 @@ def occurs_in(substr, word_list):
     return
 
 
+"""
+#notes
+def read_file(filename):
+    with open(filename, "r") as file:
+        return file.read().splitlines()
+    
+def word_search():
+    word_list = read_file("word-list.txt")
+    grid = read_file("grid-of-letters.txt")
+    print(word_list)
+    print(grid)
+    return
+
+def test():
+    word_search()
+    return
+"""
+
+
 def main():
     occurs_in()
