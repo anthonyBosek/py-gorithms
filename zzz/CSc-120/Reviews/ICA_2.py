@@ -94,14 +94,14 @@
 
 
 # Solution
-# def print_some_words(filename, n):
-#     textfile = open(filename)
-#     for line in textfile:
-#         line = line.split()
-#         for word in line:
-#             clean_word = word.strip(".,?;")
-#             if len(clean_word) >= n:
-#                 print(clean_word)
+def print_some_words(filename, n):
+    textfile = open(filename)
+    for line in textfile:
+        line = line.split()
+        for word in line:
+            clean_word = word.strip(".,?;")
+            if len(clean_word) >= n:
+                print(clean_word)
 
 
 # Alternate Solution
@@ -113,7 +113,7 @@
 #                     print(word)
 
 
-# print_some_words("sample.txt", 6)
+print_some_words("sample.txt", 6)
 
 
 # ---------------------------------------------------------------
@@ -135,39 +135,39 @@
 #   positive offsets and write the code for the positive offsets.
 
 
-myGrid = [
-    [11, 22, 33, 44, 55],
-    [66, 77, 88, 99, 11],
-    [22, 33, 44, 55, 66],
-    [77, 88, 99, 11, 22],
-    [33, 44, 55, 66, 77],
-]
+# myGrid = [
+#     [11, 22, 33, 44, 55],
+#     [66, 77, 88, 99, 11],
+#     [22, 33, 44, 55, 66],
+#     [77, 88, 99, 11, 22],
+#     [33, 44, 55, 66, 77],
+# ]
 
 
-# Solution
-def sum_diag_UL_LR(grid, offset):
-    sum = 0
-    if offset > 0:
-        i = 0
-        x = offset
-        while i < len(grid) and x < len(grid[i]):
-            sum += grid[i][x]
-            i += 1
-            x += 1
-    else:
-        i = -offset
-        x = 0
-        while i < len(grid) and x < len(grid[i]):
-            sum += grid[i][x]
-            i += 1
-            x += 1
-    return sum
+# # Solution
+# def sum_diag_UL_LR(grid, offset):
+#     sum = 0
+#     if offset > 0:
+#         i = 0
+#         x = offset
+#         while i < len(grid) and x < len(grid[i]):
+#             sum += grid[i][x]
+#             i += 1
+#             x += 1
+#     else:
+#         i = -offset
+#         x = 0
+#         while i < len(grid) and x < len(grid[i]):
+#             sum += grid[i][x]
+#             i += 1
+#             x += 1
+#     return sum
 
 
-print(sum_diag_UL_LR(myGrid, 2))  # ➞ 198
-print(sum_diag_UL_LR(myGrid, -2))  # ➞ 165
-print(sum_diag_UL_LR(myGrid, 0))  # ➞ 220
-print(sum_diag_UL_LR(myGrid, -3))  # ➞ 121
+# print(sum_diag_UL_LR(myGrid, 2))  # ➞ 198
+# print(sum_diag_UL_LR(myGrid, -2))  # ➞ 165
+# print(sum_diag_UL_LR(myGrid, 0))  # ➞ 220
+# print(sum_diag_UL_LR(myGrid, -3))  # ➞ 121
 
 
 #

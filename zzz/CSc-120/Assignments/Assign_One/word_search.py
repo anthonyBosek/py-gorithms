@@ -10,16 +10,30 @@
 # 5. Print the list of found words.
 
 
-def occurs_in(substr, word_list):
-    # ignore casing
-    # check horizontal
-    # check vertical
-    # check diagonal
-    return
+# def occurs_in(substr, word_list):
+#     # ignore casing
+#     # check horizontal
+#     # check vertical
+#     # check diagonal
+#     return
+
+
+def print_some_words(filename):
+    textfile = open(filename)
+    for line in textfile:
+        line = line.split()
+        print(line)
 
 
 """
 #notes
+
+# first open the two files
+# then get the rows of letters from the grid
+# create words of n lengths and chaeck against word list
+
+
+
 def read_file(filename):
     with open(filename, "r") as file:
         return file.read().splitlines()
@@ -38,4 +52,8 @@ def test():
 
 
 def main():
-    occurs_in()
+    # occurs_in()
+    print_some_words("grid_03.txt")
+
+
+main()
