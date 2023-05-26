@@ -26,6 +26,46 @@ def print_some_words(filename):
 
 
 """
+# Word Serach
+
+grid = []
+
+def read_grid(filename):
+    textfile = open(filename)
+    for line in textfile:
+        line = line.split()
+        grid.append(line)
+    print(grid)
+    # return grid
+
+
+def horizontal(filename):
+    print("Printing words from " + filename)
+    textfile = open(filename)
+    for line in textfile:
+        line = line.split()
+        print(line)
+
+
+def vertical(grid, n):
+    result = []
+    if n < 0:
+        return result
+    for i in range(len(grid)):
+        if n >= len(grid[i]):
+            break
+        result.append(grid[i][n])
+    return result
+
+
+def main():
+    read_grid("grid_02.txt")
+    # for i in range(1, 10):
+    #     print_some_words("grid_0" + str(i) + ".txt")
+
+
+main()
+  ________________________________________
 #notes
 
 # first open the two files
