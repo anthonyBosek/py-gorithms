@@ -97,3 +97,91 @@ def main():
 
 
 main()
+
+"""
+# Word Search
+
+word_list = []
+grid = []
+found_words = []
+
+
+def create_word_list(filename):
+    allWords = open(filename)
+    for word in allWords:
+        word_list.append(word.strip())
+    allWords.close()
+
+
+def print_found_words(answer):
+    for word in answer:
+        print(word)
+
+
+def vertical_check(g):
+    # forward
+    for row in g:
+        for word in word_list:
+            if word in "".join(row):
+                found_words.append(word)
+    # backward
+    for row in g:
+        for word in word_list:
+            if word in "".join(row[::-1]):
+                found_words.append(word)
+    print_found_words(sorted(found_words))
+
+
+def horizontal_check(g):
+    # forward
+    for row in g:
+        for word in word_list:
+            if word in "".join(row):
+                found_words.append(word)
+    # backward
+    for row in g:
+        for word in word_list:
+            if word in "".join(row[::-1]):
+                found_words.append(word)
+
+
+def create_column_grid(g):
+    column_grid = []
+    for i in range(len(g)):
+        column = []
+        for j in range(len(g[i])):
+            column.append(g[j][i])
+        column_grid.append(column)
+    return column_grid
+
+
+def create_grid(filename):
+    sampleGrid = open(filename)
+    for line in sampleGrid:
+        line = line.split()
+        grid.append(line)
+    sampleGrid.close()
+    horizontal_check(grid)
+    vertical_check(create_column_grid(grid))
+
+
+# diagonal_check
+
+
+def main():
+    for i in range(1, 11):
+        create_word_list("dict.txt")
+        if i > 9:
+            testCase = "grid_" + str(i) + ".txt"
+        else:
+            testCase = "grid_0" + str(i) + ".txt"
+        print(testCase)
+        create_grid(testCase)
+        word_list.clear()
+        grid.clear()
+        found_words.clear()
+
+
+main()
+
+"""
