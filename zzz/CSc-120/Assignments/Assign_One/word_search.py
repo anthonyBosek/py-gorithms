@@ -10,95 +10,6 @@
 # 5. Print the list of found words.
 
 
-# def occurs_in(substr, word_list):
-#     # ignore casing
-#     # check horizontal
-#     # check vertical
-#     # check diagonal
-#     return
-
-
-def print_some_words(filename):
-    textfile = open(filename)
-    for line in textfile:
-        line = line.split()
-        print(line)
-
-
-"""
-# Word Serach
-
-grid = []
-
-def read_grid(filename):
-    textfile = open(filename)
-    for line in textfile:
-        line = line.split()
-        grid.append(line)
-    print(grid)
-    # return grid
-
-
-def horizontal(filename):
-    print("Printing words from " + filename)
-    textfile = open(filename)
-    for line in textfile:
-        line = line.split()
-        print(line)
-
-
-def vertical(grid, n):
-    result = []
-    if n < 0:
-        return result
-    for i in range(len(grid)):
-        if n >= len(grid[i]):
-            break
-        result.append(grid[i][n])
-    return result
-
-
-def main():
-    read_grid("grid_02.txt")
-    # for i in range(1, 10):
-    #     print_some_words("grid_0" + str(i) + ".txt")
-
-
-main()
-  ________________________________________
-#notes
-
-# first open the two files
-# then get the rows of letters from the grid
-# create words of n lengths and chaeck against word list
-
-
-
-def read_file(filename):
-    with open(filename, "r") as file:
-        return file.read().splitlines()
-    
-def word_search():
-    word_list = read_file("word-list.txt")
-    grid = read_file("grid-of-letters.txt")
-    print(word_list)
-    print(grid)
-    return
-
-def test():
-    word_search()
-    return
-"""
-
-
-def main():
-    # occurs_in()
-    print_some_words("grid_03.txt")
-
-
-main()
-
-"""
 # Word Search
 
 word_list = []
@@ -118,6 +29,23 @@ def print_found_words(answer):
         print(word)
 
 
+def diagonal_check(g):
+    # forward
+    for row in g:
+        for word in word_list:
+            if word in "".join(row):
+                if word in found_words:
+                    continue
+                else:
+                    found_words.append(word)
+    # backward
+    for row in g:
+        for word in word_list:
+            if word in "".join(row[::-1]):
+                found_words.append(word)
+    print_found_words(sorted(found_words))
+
+
 def vertical_check(g):
     # forward
     for row in g:
@@ -129,7 +57,7 @@ def vertical_check(g):
         for word in word_list:
             if word in "".join(row[::-1]):
                 found_words.append(word)
-    print_found_words(sorted(found_words))
+    # print_found_words(sorted(found_words))
 
 
 def horizontal_check(g):
@@ -143,6 +71,22 @@ def horizontal_check(g):
         for word in word_list:
             if word in "".join(row[::-1]):
                 found_words.append(word)
+
+
+def create_diagonal_grid(g):
+    diagonal_grid = []
+    for row in range(len(g)):
+        for offset in range(len(g)):
+            diagonal = []
+            i = row
+            x = offset
+            while i < len(g[row]) and x < len(g[row]):
+                diagonal.append(g[i][x])
+                i += 1
+                x += 1
+            if len(diagonal) >= 3:
+                diagonal_grid.append(diagonal)
+    return diagonal_grid
 
 
 def create_column_grid(g):
@@ -163,9 +107,7 @@ def create_grid(filename):
     sampleGrid.close()
     horizontal_check(grid)
     vertical_check(create_column_grid(grid))
-
-
-# diagonal_check
+    diagonal_check(create_diagonal_grid(grid))
 
 
 def main():
@@ -183,5 +125,3 @@ def main():
 
 
 main()
-
-"""
