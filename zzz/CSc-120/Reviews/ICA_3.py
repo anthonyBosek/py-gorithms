@@ -10,7 +10,7 @@ d = {}
 d["one"] = 1
 d["two"] = 2
 d["five"] = 5
-print(d)
+# print(d)
 
 # ---------------------------------------------------------------
 
@@ -22,7 +22,7 @@ def print_keys(d):
         print(key)
 
 
-print_keys(d)
+# print_keys(d)
 
 
 # ---------------------------------------------------------------
@@ -41,7 +41,13 @@ def print_values(d):
         print(d[key])
 
 
-print_values(d)
+def print_all(d):
+    print(d.items())
+    for key, value in d.items():
+        print(key, value)
+
+
+# print_all(d)
 
 # ---------------------------------------------------------------
 
@@ -64,14 +70,17 @@ def key_of_max_value(adict):
         if adict[key] > max_value:
             max_value = adict[key]
             max_value_key = key
-    return {max_value_key: max_value}
-    # return max_value_key
+    # return {max_value_key: max_value}
+    return max_value_key, max_value
 
 
-print(key_of_max_value(sample_dict))
-print(key_of_max_value(example_dict))
-print(key_of_max_value(test_dict))
-
+# x, y = 10, 20
+# print(key_of_max_value(sample_dict))
+# print(key_of_max_value(example_dict))
+# print(key_of_max_value(test_dict))
+key, value = key_of_max_value(sample_dict)
+# print(key)
+# print(value)
 """ 
 # sample solution from stackoverflow
 # https://stackoverflow.com/questions/268272/getting-key-with-maximum-value-in-dictionary
@@ -90,5 +99,21 @@ return {key: value for key, value in adict.items() if value == max(adict.values(
 # {'here': 0, 'is': 0, 'the': 1, 'root': 1, 'of': 0, 'and': 0}
 # Notice that the strings that are unique in slist have a value of 0, and the words that are
 # duplicates have a value of 1.
+
+sample_list = ["here", "is", "the", "root", "of", "the", "root", "and", "the"]
+
+
+def identify_unique_words(slist):
+    my_dict = {}
+    for word in slist:
+        if word in my_dict:
+            my_dict[word] = 1
+        else:
+            my_dict[word] = 0
+
+    return my_dict
+
+
+print(identify_unique_words(sample_list))
 
 # ---------------------------------------------------------------
