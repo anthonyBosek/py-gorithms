@@ -28,7 +28,7 @@ def create_grid(filename):
     return grid
 
 
-# function to modify original grid into new rows of origional columns
+# function to modify original grid into new rows from columns
 def create_column_grid(input_grid):
     column_grid = []
     for i in range(len(input_grid)):
@@ -39,7 +39,7 @@ def create_column_grid(input_grid):
     return column_grid
 
 
-# function to modify original grid into new rows of diagonal columns
+# function to modify original grid into new rows from diagonals **3 or more letters**
 def create_diagonal_grid(input_grid):
     diagonal_grid = []
     for row in range(len(input_grid)):
@@ -98,3 +98,53 @@ def main():
 
 
 main()
+
+
+# notes & explanation
+""" 
+
+
+# origional
+[
+    ['A', 'B', 'C', 'D', 'E'],
+    ['F', 'G', 'H', 'I', 'J'],
+    ['K', 'L', 'M', 'N', 'O'],
+    ['P', 'Q', 'R', 'S', 'T'],
+    ['U', 'V', 'W', 'X', 'Y']
+]
+
+# column
+[
+    ['A', 'F', 'K', 'P', 'U'],
+    ['B', 'G', 'L', 'Q', 'V'],
+    ['C', 'H', 'M', 'R', 'W'],
+    ['D', 'I', 'N', 'S', 'X'],
+    ['E', 'J', 'O', 'T', 'Y']
+]
+
+# diagonal
+[
+    ['A', 'G', 'M', 'S', 'Y'],
+    ['B', 'H', 'N', 'T'],
+    ['C', 'I', 'O'],
+    ['F', 'L', 'R', 'X'],
+    ['G', 'M', 'S', 'Y'],
+    ['H', 'N', 'T'],
+    ['K', 'Q', 'W'],
+    ['L', 'R', 'X'],
+    ['M', 'S', 'Y']
+]
+
+# create word with .join()
+# -forword example: ''.join(['A', 'B', 'C', 'D', 'E']) = 'ABCDE'
+# -backword example: ''.join(['A', 'B', 'C', 'D', 'E'][::-1]) = 'EDCBA'
+
+# check for word in row
+# -forword example: 'ABC' in 'ABCDE' = True
+
+
+# future improvements
+# -correct issue with repetition on diagonal
+# -add ability to check for words in diagonal LL to UR
+
+"""

@@ -6,9 +6,24 @@
 # >>> 'three' in d
 # False
 
+d = {}
+d["one"] = 1
+d["two"] = 2
+d["five"] = 5
+print(d)
+
 # ---------------------------------------------------------------
 
 # 1. Write a loop to print the keys of d.
+
+
+def print_keys(d):
+    for key in d:
+        print(key)
+
+
+print_keys(d)
+
 
 # ---------------------------------------------------------------
 
@@ -16,15 +31,53 @@
 # a) use the values() method
 # b) don’t use the values() method
 
+
+def print_values(d):
+    # a) use the values() method
+    for value in d.values():
+        print(value)
+    # b) don’t use the values() method
+    for key in d:
+        print(d[key])
+
+
+print_values(d)
+
 # ---------------------------------------------------------------
 
 # 3. Write a function key_of_max_value(adict) that finds the maximum of all the values in
 # the dictionary adict and returns the corresponding key. For example, if the dictionary passed
 # in is
-# {"hello" : 34, "sunny" : 51, "the" : 82, "street" : 13}
-# then the function returns the key the.
+# {"hello" : 34, "sunny" : 51, "the" : 82, "street" : 13} returns 'the'.
 # You’ll have to iterate through the dictionary and keep track of the maximum value seen so far,
 # but also keep track of the corresponding key for that value.
+
+sample_dict = {"hello": 134, "sunny": 51, "the": 82, "street": 13}
+example_dict = {"hello": 34, "sunny": 51, "the": 82, "street": 13}
+test_dict = {"hello": 34, "sunny": 51, "the": 82, "street": 113}
+
+
+def key_of_max_value(adict):
+    max_value = 0
+    max_value_key = ""
+    for key in adict:
+        if adict[key] > max_value:
+            max_value = adict[key]
+            max_value_key = key
+    return {max_value_key: max_value}
+    # return max_value_key
+
+
+print(key_of_max_value(sample_dict))
+print(key_of_max_value(example_dict))
+print(key_of_max_value(test_dict))
+
+""" 
+# sample solution from stackoverflow
+# https://stackoverflow.com/questions/268272/getting-key-with-maximum-value-in-dictionary
+# try to understand this solution
+return {key: value for key, value in adict.items() if value == max(adict.values())}
+"""
 
 # ---------------------------------------------------------------
 
