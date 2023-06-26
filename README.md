@@ -25,7 +25,7 @@ Clone the repository
 git clone
 ```
 
-[]: # Usage
+# Usage
 
 ##
 
@@ -35,5 +35,5 @@ git clone
 
     ## Authors
 
-    - **[Anthony Bosek](anthony-bosek.vercal.app)
+    **[Anthony Bosek](anthony-bosek.vercal.app)
     ** - _Initial work_ - [Anthony Bosek](anthony.bosek@gmail.com)
