@@ -7,11 +7,11 @@
 - [Usage](#usage)
 - [Contributing](../CONTRIBUTING.md)
 
-[]: # About
+# About
 
 This repository contains algorithms implemented in Python. The algorithms are based on the JavaScript Algorithms and Data Structures repository.
 
-[]: # Getting Started
+# Getting Started
 
 ### Prerequisites
 
@@ -29,7 +29,7 @@ git clone
 
 ##
 
-    []: # Contributing
+    # Contributing
 
     Please read [CONTRIBUTING.md](../CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
 
