@@ -27,6 +27,8 @@ git clone
 
 # Usage
 
+This repository contains algorithms implemented in Python, there is no UI created. To run/test you will have to use the console or IDLE.
+
 ##
 
 # Contributing
