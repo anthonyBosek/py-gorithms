@@ -9,7 +9,7 @@
 
 # About
 
-This repository contains algorithms implemented in Python. The algorithms are based on the JavaScript Algorithms and Data Structures repository.
+This repository contains algorithms implemented in Python. The algorithms are based on the JavaScript Algorithms and Data Structures repository. This is my attempts at beginning my Python journey and modifing my knowledge from JS.
 
 # Getting Started
 
